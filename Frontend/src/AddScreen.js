@@ -17,7 +17,7 @@ function AddScreen() {
     const handleChangeText = (value,name)=>{
       setState({...state,[name]:value})}
        useEffect(()=>{
-      saveBook;
+      addBook;
        },[])
       
       const addBook = async()=>{
