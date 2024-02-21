@@ -1,54 +1,41 @@
-import  react from 'react'
-import {Button, View, Text, TextInput} from 'react-native';
+import {Button, View, Text,ScrollView} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import AddScreen from './src/AddScreen';
-import UpdateScreen from './src/UpdateScreen';
 import ListScreen from './src/ListScreen';
-import DeleteScreen from './src/DeleteScreen'
 
 function HomeScreen({ navigation }) {
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Home Screen</Text>
+    <ScrollView style={{flex:1, padding:35, backgroundColor:'#FFFFFF'}}>
+      <View style={{paddingTop:15}}>
       <Button
-        title="Add Book"
+        title="Add Book" color='#11A79E' 
         onPress={() => navigation.navigate('Add')}
       />
-        <Button
-        title="Update Book"
-        onPress={() => navigation.navigate('Update')}
-      />
-      <Button
-        title="List Books"
-        onPress={() => navigation.navigate('List')}
-      />
-      <Button
-      title="Delete Book"
-      onPress={() => navigation.navigate('Delete')}
-    />
-    </View>
+      </View>
+      <View style={{flex:1,
+    padding:0,
+    paddingTop:35,
+    marginBottom:20,}}>
+      <ListScreen/>
+      </View>
+      
+    </ScrollView>
   );
 }
-
-
-
 const Stack = createNativeStackNavigator();
 function App() {
   return (
     <NavigationContainer>
-    <Stack.Navigator initialRouteName="Home">
-      <Stack.Screen name="Home" component={HomeScreen} />
-      <Stack.Screen name="Add" component={AddScreen} />
-      <Stack.Screen name="Update" component={UpdateScreen} />
-      <Stack.Screen name="List" component={ListScreen} />
-      <Stack.Screen name="Delete" component={DeleteScreen} />
-
+    <Stack.Navigator initialRouteName="Librery">
+      <Stack.Screen name="Librery" component={HomeScreen} />
+      <Stack.Screen name="Add" component={AddScreen}/>
     </Stack.Navigator>
   </NavigationContainer>
 );
   
 }
+
 export default App
 
 
